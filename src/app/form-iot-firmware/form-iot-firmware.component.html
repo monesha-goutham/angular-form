@@ -1,0 +1,66 @@
+<form [formGroup]="iotFirmwareUploadForm">
+  <mat-card class="form-card">
+    <mat-card-title class="form__title">Upload IOT Firmware</mat-card-title>
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label class="form__label"> version name </mat-label>
+          <input matInput formControlName="versionName" type="text" />
+          <mat-error
+            *ngIf="
+              iotFirmwareUploadForm.get('versionName')?.hasError('minlength') &&
+              !iotFirmwareUploadForm.get('versionName')?.hasError('required')
+            "
+            >Cannot be less than 3 values</mat-error
+          >
+          <mat-error
+            *ngIf="
+              iotFirmwareUploadForm.get('versionName')?.hasError('required')
+            "
+            >versionName is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label class="form__label"> select firmware type </mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+
+          <mat-error
+            *ngIf="iotFirmwareUploadForm.get('serverIp')?.hasError('required')"
+            >server IP is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label class="form__label"> file name </mat-label>
+          <input matInput formControlName="versionName" type="text" />
+          <mat-error
+            *ngIf="
+              iotFirmwareUploadForm.get('fileName')?.hasError('minlength') &&
+              !iotFirmwareUploadForm.get('fileName')?.hasError('required')
+            "
+            >Cannot be less than 3 values</mat-error
+          >
+          <mat-error
+            *ngIf="iotFirmwareUploadForm.get('fileName')?.hasError('required')"
+            >versionName is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="button-row">
+        <button mat-raised-button (click)="onRefresh()" type="button">
+          <mat-icon class="form__icon">refreshicon</mat-icon>refresh
+        </button>
+        <button mat-raised-button (click)="onSubmit()" type="button">
+          <mat-icon class="form__icon">save</mat-icon>save
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

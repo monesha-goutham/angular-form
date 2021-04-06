@@ -1,0 +1,29 @@
+<!-- build nav here -->
+
+<nav>
+  <mat-sidenav mode="side" opened>
+    <mat-list role="list">
+      <mat-list-item role="navigation" routerLink="/iot-firmware-upload"
+        >Upload IOT Firmware</mat-list-item
+      >
+      <mat-list-item role="navigation" routerLink="/c-firmware-upload"
+        >Upload C Firmware</mat-list-item
+      >
+    </mat-list>
+  </mat-sidenav>
+</nav>
+
+<mat-sidenav-container>
+  <!-- <mat-sidenav mode="side" opened>
+    
+    <mat-list role="list">
+      <mat-list-item role="navigation">Item 1</mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+  </mat-sidenav> -->
+
+  <mat-sidenav-content>
+    <router-outlet> </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

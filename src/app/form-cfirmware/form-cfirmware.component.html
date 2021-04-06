@@ -1,0 +1,119 @@
+<form [formGroup]="cFirmwareUploadForm">
+  <mat-card class="form-card">
+    <mat-card-title class="form__title">C Firmware Upload</mat-card-title>
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label class="form__label"> version name </mat-label>
+          <input matInput formControlName="versionName" type="text" />
+          <mat-error
+            *ngIf="
+              cFirmwareUploadForm.get('versionName')?.hasError('minlength') &&
+              !cFirmwareUploadForm.get('versionName')?.hasError('required')
+            "
+            >Cannot be less than 3 values</mat-error
+          >
+          <mat-error
+            *ngIf="cFirmwareUploadForm.get('versionName')?.hasError('required')"
+            >versionName is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label class="form__label"> server ip </mat-label>
+          <input matInput formControlName="serverIp" type="text" />
+
+          <mat-error
+            *ngIf="cFirmwareUploadForm.get('serverIp')?.hasError('required')"
+            >server IP is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="standard" class="full-width">
+            <mat-label class="form__label">username</mat-label>
+            <input matInput formControlName="userName" type="text" />
+            <mat-error
+              *ngIf="
+                cFirmwareUploadForm.get('userName')?.hasError('minlength') &&
+                !cFirmwareUploadForm.get('userName')?.hasError('required')
+              "
+              >username cannot be less than 4 characters</mat-error
+            >
+            <mat-error
+              *ngIf="cFirmwareUploadForm.get('userName')?.hasError('required')"
+              >username is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field
+            appearance="standard"
+            class="full-width"
+            type="password"
+          >
+            <mat-label class="form__label">password</mat-label>
+            <input matInput formControlName="password" type="password" />
+            <mat-icon matSuffix>visibilityoff</mat-icon>
+            <mat-error
+              *ngIf="
+                cFirmwareUploadForm.get('password')?.hasError('minlength') &&
+                !cFirmwareUploadForm.get('password')?.hasError('required')
+              "
+              >password requires a minimum of 8 characters</mat-error
+            >
+            <mat-error
+              *ngIf="cFirmwareUploadForm.get('password')?.hasError('required')"
+              >password is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="standard" class="full-width">
+            <mat-label class="form__label">file path</mat-label>
+            <input matInput formControlName="filePath" type="text" />
+
+            <mat-error
+              *ngIf="cFirmwareUploadForm.get('filePath')?.hasError('required')"
+              >file path is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="standard" class="full-width">
+            <mat-label class="form__label">file size</mat-label>
+            <input matInput formControlName="fileSize" type="text" />
+
+            <mat-error
+              *ngIf="cFirmwareUploadForm.get('fileSize')?.hasError('required')"
+              >file size is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label class="form__label">release note</mat-label>
+          <input matInput formControlName="releaseNote" type="text" />
+
+          <mat-error
+            *ngIf="cFirmwareUploadForm.get('releaseNote')?.hasError('required')"
+            >release note is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="button-row">
+        <button mat-raised-button (click)="onRefresh()" type="button">
+          <mat-icon class="form__icon">refreshicon</mat-icon>refresh
+        </button>
+        <button mat-raised-button (click)="onSubmit()" type="button">
+          <mat-icon class="form__icon">save</mat-icon>save
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

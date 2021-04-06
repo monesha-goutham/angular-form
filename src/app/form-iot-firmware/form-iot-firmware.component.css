@@ -1,0 +1,56 @@
+.form-card {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+/* 
+.col {
+  flex: 0.48;
+} */
+
+.full-width {
+  width: 100%;
+}
+
+.mat-form-field {
+  /* color: white; */
+}
+
+/* :host::ng-deep .mat-form-field-appearance-standard {
+    }
+    :host::ng-deep .mat-form-field input {
+      outline: 3px solid black !important;
+    } */
+:host ::ng-deep .mat-form-field-underline {
+  /* border-bottom: 3px solid black !important; */
+  height: 2px !important;
+}
+
+:host .mat-form-field-outline-end {
+  border-width: 10px !important;
+}
+.form__label {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.button-row {
+  margin-top: 30px;
+}
+button {
+  margin-right: 24px;
+  background-color: rgb(24, 100, 161);
+  color: white;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form__icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
